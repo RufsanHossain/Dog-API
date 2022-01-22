@@ -1,5 +1,5 @@
 .container {
-    width: 980px;
+    width: 90%;
     margin: 0 auto;
 }
 
@@ -15,5 +15,17 @@
 }
 
 .doggos img {
-    width: 32%;
+    width: 30%;
+}
+
+@media (max-width:880px) {
+    .doggos img {
+        width: 48%;
+    }
+}
+
+@media (max-width:520px) {
+    .doggos img {
+        width: 100%;
+    }
 }
