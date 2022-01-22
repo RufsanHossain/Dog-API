@@ -1,15 +1,19 @@
-const DOG_URL = "https://dog.ceo/api/breeds/image/random";
-const promise = fetch(DOG_URL);
-const doggos = document.querySelector(".doggos");
+const BREEDS_URL = "https://dog.ceo/api/breeds/image/random";
 
-promise
-    .then(function(response) {
-        const processingPromise = response.json();
-        return processingPromise;
-    })
-    .then(function(processedResponse) {
-        const img = document.createElement("img");
-        img.src = processedResponse.message;
-        img.alt = "Cute doggo";
-        doggos.appendChild(img);
-    });
+function addDoggo() {
+    // fetching data from BREEDS_URL and processing into JSON
+    fetch(BREEDS_URL)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            const img = document.createElement('img'); // creating img element
+            img.src = data.message;
+            img.alt = 'cute doggo';
+
+            document.querySelector('.doggos').appendChild(img); // appending img into doggos class
+        })
+
+}
+
+document.querySelector('.add-doggo').addEventListener("click", addDoggo);
